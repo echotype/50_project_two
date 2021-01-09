@@ -1,0 +1,19 @@
+🈶️input Input a sequence / v = original/given sequence
+
+🈶️new_seq A new sequence =
+
+	
+Make a [] of amino_acid	
+
+	
+Def judge_stop_codon	
+
+Fmt
+Pep
+
+#############################################
+
+	
+Reverse_complement(fmt)	
+
+A dict of ‘enzymes_emboss_e.011.txt’, ‘r’) as f:
