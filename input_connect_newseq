@@ -17,3 +17,17 @@ Pep
 Reverse_complement(fmt)	
 
 A dict of ‘enzymes_emboss_e.011.txt’, ‘r’) as f:
+
+Original_enzy_list = []
+
+Reverse_c_enzy_list = []
+
+Remaining_enzy_list = []
+
+For key, value in dict.items( ):
+	If fmt.find(value) == -1:
+		Continue
+
+	Else:
+		Original_enzy_list.append(key)
+
