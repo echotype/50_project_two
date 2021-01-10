@@ -1,0 +1,85 @@
+
+🈶️input Input a sequence / v = original/given sequence
+
+🈶️new_seq A new sequence =
+
+	
+Make a [] of amino_acid	
+
+	
+Def judge_stop_codon	
+
+Fmt
+Pep
+
+#############################################
+
+	
+Reverse_complement(fmt)	
+
+A dict of ‘enzymes_emboss_e.011.txt’, ‘r’) as f:
+
+Original_enzy_list = []
+
+Reverse_c_enzy_list = []
+
+Remaining_enzy_list = []
+
+🈶️original_enzyme_list For key, value in dict.items( ):
+	If fmt.find(value) == -1:
+		Continue
+
+	Else:
+		Original_enzy_list.append(key)
+
+🈶️reverse_complement_enzyme_lisrt For key, value in dict.items( ):
+	If reverse_complement(fmt).find(value) == -1
+		Continue
+	Else:
+		Reverse_c_enzy_list.append(key)
+
+Remaining_enzy_list = original_enzy_list + reverse_c_enzy_list
+
+Restriction_enzymes = ‘,’.join(sorted(set(remaining_enzy_list)))
+
+#############################################
+
+# Use genetic code to generate a back translation dictionary
+    def bt(genetic_code):
+        code_dict = genetic_code
+        bt = {}
+
+        for key,value in code_dict.items():
+            if value in bt:
+                bt[value].append(key)
+            else:
+                bt[value]=[key]
+
+        return bt
+    
+    bt = bt(genetic_code)
+    
+
+    def back_trans(pep, pos,newseqs, bt_table,s=''):
+            '''
+            This function takes a peptide sequence (pep, type str),
+            the position on the peptide sequence (pos, type str),
+            the list used to store the new sequences (newseqs, type list),
+            and part of the newly generated sequence (s, type str) as input.
+            It also uses a back translation table (bt, type dict), with the
+            amino acids as the keys and the list of corresponding codons as
+            values. For example, "A": ['GCA', 'GCC', 'GCG', 'GCT'].
+            This recursive function will finally generate a list of
+            back-translated DNA sequences of pep.
+            '''
+            
+            # Base case
+            if pos == len(pep) - 1:
+                    for codon in bt_table[pep[pos]]:
+                            newseqs.append(s+codon)
+                    return
+            # Otherwise
+            for codon in bt_table[pep[pos]]:
+                    back_trans(pep, pos+1, newseqs, bt_table, s+codon)
+
+
